@@ -2,13 +2,13 @@
 
 В приложении определены следующие url для доступа к ресурсам:
 GET:
-  - http://<domainame>/generate - генерация рандомного числа
-  - http://<domainname>/retrieve/<number_id> - получение сгенерированного числа по его id
+  - http://domainame/generate - генерация рандомного числа
+  - http://domainname/retrieve/<number_id> - получение сгенерированного числа по его id
   
   
   
 POST:
-  - http://<domainname>/registrate - регистрация нового пользователя
+  - http://domainname/registrate - регистрация нового пользователя
   Параметры тела запроса 
   {
     "login": "somelogin",
