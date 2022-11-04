@@ -16,13 +16,19 @@ POST:
   }
   
   
-  Основной код приложения расположен в папке app/app_src
+Основной код приложения расположен в папке app/app_src
+  
   Демон, ответственный за выполнение задач по расписанию, расположен в папке app/worker
   
-  Приложение разворачивается командой docker-compose up --build -d 
-  После разворачивания приложение, необходимо выполнить следующие действия:
-      Для инициализации базы данных: docker-compose run php php bin/console --no-interaction doctrine:migrations:migrate
-       Для заполнения базы данных начальными значениями + функциональный тест приложения: python3 test/test.py
-       Для запуска демона в фоновом режиме:
-           1) Перейти в контейнер php: docker-compose exec php /bin/bash
-           2) Запустить демона: python3 /worker/worker.py >> dev/null &
+Приложение разворачивается командой docker-compose up --build -d 
+  
+После разворачивания приложение, необходимо выполнить следующие действия:
+  
+ Для инициализации базы данных: docker-compose run php php bin/console --no-interaction doctrine:migrations:migrate
+  
+ Для заполнения базы данных начальными значениями + функциональный тест приложения: python3 test/test.py
+ Для запуска демона в фоновом режиме:
+  
+     1) Перейти в контейнер php: docker-compose exec php /bin/bash
+  
+     2) Запустить демона: python3 /worker/worker.py >> dev/null &
