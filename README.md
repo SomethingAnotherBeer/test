@@ -27,6 +27,7 @@ POST:
  Для инициализации базы данных: docker-compose run php php bin/console --no-interaction doctrine:migrations:migrate
   
  Для заполнения базы данных начальными значениями + функциональный тест приложения: python3 test/test.py
+ 
  Для запуска демона в фоновом режиме:
   
      1) Перейти в контейнер php: docker-compose exec php /bin/bash
