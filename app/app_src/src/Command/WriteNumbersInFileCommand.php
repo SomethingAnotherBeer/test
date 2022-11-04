@@ -12,8 +12,6 @@ use App\Repository\NumberRepository;
 class WriteNumbersInFileCommand extends Command
 {
 	private NumberRepository $numberRepository;
-
-	protected static $defaultName = 'number:writefile';
 	private static $filePath = '/var/www/app/files/numbers.txt';
 
 	public function __construct(NumberRepository $numberRepository)
@@ -23,6 +21,11 @@ class WriteNumbersInFileCommand extends Command
 		parent::__construct();
 	}
 
+	protected function configure():void
+	{
+		$this->setName('number:writefile');
+	}
+	
 	public function execute(InputInterface $inputInterface, OutputInterface $outputInterface):int
 	{
 
