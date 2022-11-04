@@ -24,8 +24,8 @@ def writeLogs(path_log, results):
 
 command = 'php '
 path_to_console = '/var/www/app/bin/console '
-error_log_path = 'error_log.txt'
-success_log_path = 'success_log.txt'
+error_log_path = '/worker/error_log.txt'
+success_log_path = '/worker/success_log.txt'
 
 timestamp_script_run = time.time()
 flush_time = 20
