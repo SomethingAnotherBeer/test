@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx
+    container_name: nginx-service
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./app/app_src:/var/www/app
+    depends_on:
+      - php
+      
+  php:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: php-service
+    ports:
+      - '9000:9000'
+    user: '1000'
+    volumes:
+      - ./app/app_src:/var/www/app
+      - ./app/worker:/worker
+    depends_on:
+      - db
+
+  db:
+    image: mariadb
+    container_name: db-service
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 222
+      MYSQL_DATABASE: testing
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 111
+    ports:
+      - '3306:3306'
